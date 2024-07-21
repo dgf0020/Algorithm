@@ -1,9 +1,12 @@
 class Solution {
     public int solution(int n) {
-        int answer = 1;
+        int answer = 0;
         
-        while((answer * 6) % n != 0) {
-            answer += 1;
+        for (int i = 1; i <= n; i++) {
+            if (6 * i % n == 0) {
+                answer = i;
+                break;
+            }
         }
         
         return answer;
