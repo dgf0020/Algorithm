@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main{
+public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -15,10 +15,11 @@ public class Main{
 		}
 		
 		while (queue.size() > 1) {
-			System.out.print(queue.peek() + " ");
-			queue.poll();
+			System.out.print(queue.poll() + " ");
 			queue.offer(queue.poll());
 		}
 		System.out.println(queue.peek());
+		
+		sc.close();
 	}
 }
