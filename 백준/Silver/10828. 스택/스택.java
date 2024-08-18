@@ -4,46 +4,53 @@ import java.util.Stack;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
 		
+		StringBuilder sb = new StringBuilder();
 		Stack<Integer> stack = new Stack<>();
 		
+		int n = sc.nextInt();
+		sc.nextLine();
+		
 		for (int i = 0; i < n; i++) {
-			String str = sc.next();
+			String str = sc.nextLine();
 			
-			switch(str) {
+			switch(str.split(" ")[0]) {
 			case "push":
-				int x = sc.nextInt();
-				stack.push(x);
+				stack.push(Integer.parseInt(str.split(" ")[1]));
 				break;
 			case "pop":
 				if (stack.isEmpty()) {
-					System.out.println(-1);
+					sb.append("-1\n");
 				}
 				else {
-					System.out.println(stack.pop());
+					sb.append(stack.pop() + "\n");
 				}
 				break;
 			case "size":
-				System.out.println(stack.size());
+				sb.append(stack.size() + "\n");
 				break;
 			case "empty":
 				if (stack.isEmpty()) {
-					System.out.println(1);
+					sb.append(1);
 				}
 				else {
-					System.out.println(0);
+					sb.append(0);
 				}
+				sb.append("\n");
 				break;
 			case "top":
 				if (stack.isEmpty()) {
-					System.out.println(-1);
+					sb.append(-1);
 				}
 				else {
-					System.out.println(stack.peek());
+					sb.append(stack.peek());
 				}
+				sb.append("\n");
 				break;
 			}
 		}
+		System.out.println(sb);
+		
+		sc.close();
 	}
 }
