@@ -3,7 +3,7 @@ class Solution {
         int answer = 0;
         
         for (int i = 0; i < array.length; i++) {
-            if (height < array[i]) {
+            if (array[i] > height) {
                 answer++;
             }
         }
