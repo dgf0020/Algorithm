@@ -1,12 +1,16 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int n) {
-        int[] answer = new int[(n + 1) / 2];
+        int[] answer = {};
         
-        for (int i = 1; i <= n; i++) {
-            if (i % 2 != 0) {
-                answer[i / 2] = i;
-            }
+        List<Integer> list = new LinkedList<>();
+        
+        for (int i = 1; i <= n; i+=2) {
+            list.add(i);
         }
+        
+        answer = list.stream().mapToInt(Integer::intValue).toArray();
         
         return answer;
     }
