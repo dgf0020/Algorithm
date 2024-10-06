@@ -9,21 +9,19 @@ class Solution {
 		for (int i = 0; i < players.length; i++) {
 			map.put(players[i], i);
 		}
-		
-		for (int j = 0; j < callings.length; j++) {
-			int a = map.get(callings[j]);
-			
-			map.put(callings[j], a - 1);
-			map.put(players[a - 1], a);
-			
-			String player = players[a - 1];
-			players[a - 1] = players[a];
-			players[a] = player;
-		}
+        
+        for (String name : callings) {
+            int idx = map.get(name);
+            String bname = players[idx - 1];
+            
+            map.put(name, idx - 1);
+            map.put(bname, idx);
+            
+            players[idx] = bname;
+            players[idx - 1] = name;
+        }
 
-		for (int i = 0; i < answer.length; i++) {
-			answer[i] = players[i];
-		}
+		answer = players;
        
         return answer;
     }
